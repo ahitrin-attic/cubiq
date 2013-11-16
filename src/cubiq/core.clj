@@ -1,5 +1,7 @@
 (ns cubiq.core)
 
+;; Эта штука называется Skewb Hex
+
 ;; треугольники
 (def triangles #{ :up :down :up-front :down-back :up-back-left :up-back-right :down-front-left :down-front-right })
 ;; боковушки
@@ -24,3 +26,16 @@
 ;; цвета
 (def colors #{:white :red :yellow :orange :gray :pink :blue :darkblue})
 
+(defn painted [side color]
+  (zipmap side (repeat color)))
+
+(def complete-skewb-hex-example
+  (merge
+    (painted up-front-side :white)
+    (painted up-side :red)
+    (painted up-back-left-side :darkblue)
+    (painted up-back-right-side :orange)
+    (painted down-side :pink)
+    (painted down-front-left-side :yellow)
+    (painted down-front-right-side :blue)
+    (painted down-back-side :gray)))
