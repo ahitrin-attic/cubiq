@@ -49,3 +49,7 @@
 (defn rotate [source rot]
   "source - исходный куб, rot - карта преобразования старых вершин в новые"
   (apply assoc source (flatten (for [x rot] (list (x 0) (source (x 1)))))))
+
+;; TODO: доделать поворот
+(def rot-top { :up-back-left :up-back-right :up-back-right :up-front :up-front :up-back-left
+               :u-uf-ubl :u-uf-ubr :u-uf-ubr :u-ubl-ubr :u-ubl-ubr :u-uf-ubl })
