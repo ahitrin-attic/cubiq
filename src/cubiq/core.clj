@@ -45,3 +45,8 @@
   (defn colors-on-side [hex side]
     (vals (select-keys hex side)))
   (colors-on-side complete-skewb-hex-example down-side))
+
+;; повороты
+(defn rotate [source rot]
+  "source - исходный куб, rot - карта преобразования старых вершин в новые"
+  (apply assoc source (flatten (for [x rot] (list (x 0) (source (x 1)))))))
