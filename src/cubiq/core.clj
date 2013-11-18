@@ -40,11 +40,10 @@
     (painted down-front-right-side :blue)
     (painted down-back-side :gray)))
 
-(comment
-  ;; выборка всех цветов с конкретной стороны
-  (defn colors-on-side [hex side]
-    (vals (select-keys hex side)))
-  (colors-on-side complete-skewb-hex-example down-side))
+;; выборка всех цветов с конкретной стороны
+(defn colors-on-side [hex side]
+  (vals (select-keys hex side)))
+;; (colors-on-side complete-skewb-hex-example down-side)
 
 ;; повороты
 (defn rotate [source rot]
