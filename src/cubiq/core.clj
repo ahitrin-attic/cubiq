@@ -54,8 +54,8 @@
   "меняет местами по кругу a, b и c"
   { a b b c c a })
 
-;; TODO: доделать поворот
 (def rot-top (merge
   (round :up-back-left :up-back-right :up-front)
   (round :u-uf-ubl :u-uf-ubr :u-ubl-ubr)
-  (round :uf-u-dfl :ubl-db-u :ubr-dfr-u)))
+  (round :uf-u-dfl :ubl-db-u :ubr-dfr-u)
+  (round :uf-u-dfr :ubl-db-dfl :ubr-db-dfr)))
