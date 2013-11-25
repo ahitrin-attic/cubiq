@@ -50,6 +50,12 @@
   "source - исходный куб, rot - карта преобразования старых вершин в новые"
   (apply assoc source (flatten (for [x rot] (list (x 0) (source (x 1)))))))
 
+(defn round [a b c]
+  "меняет местами по кругу a, b и c"
+  { a b b c c a })
+
 ;; TODO: доделать поворот
-(def rot-top { :up-back-left :up-back-right :up-back-right :up-front :up-front :up-back-left
-               :u-uf-ubl :u-uf-ubr :u-uf-ubr :u-ubl-ubr :u-ubl-ubr :u-uf-ubl })
+(def rot-top (merge
+  (round :up-back-left :up-back-right :up-front)
+  (round :u-uf-ubl :u-uf-ubr :u-ubl-ubr)
+  (round :uf-u-dfl :ubl-db-u :ubr-dfr-u)))
