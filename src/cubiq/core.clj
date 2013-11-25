@@ -59,3 +59,9 @@
   (round :u-uf-ubl :u-uf-ubr :u-ubl-ubr)
   (round :uf-u-dfl :ubl-db-u :ubr-dfr-u)
   (round :uf-u-dfr :ubl-db-dfl :ubr-db-dfr)))
+
+(def rot-bottom (merge
+  (round :down-front-right :down-front-left :down-back)
+  (round :d-db-dfr :d-db-dfl :d-dfl-dfr)
+  (round :db-d-ubr :dfr-uf-d :dfl-ubl-d)
+  (round :db-d-ubl :dfr-uf-ubr :dfl-uf-ubl)))

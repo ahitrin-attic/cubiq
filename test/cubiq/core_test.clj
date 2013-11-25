@@ -15,8 +15,10 @@
 
 (deftest verify-rotations
   (testing "повороты написаны правильно"
-    (let [r #(rotate % rot-top)]
+    (let [top #(rotate % rot-top)
+          bot #(rotate % rot-bottom)]
       (is (= complete-skewb-hex-example
-             (-> complete-skewb-hex-example r r r))))))
+             (-> complete-skewb-hex-example top top top)
+             (-> complete-skewb-hex-example bot bot bot))))))
 (comment
   (clojure.test/run-tests))
