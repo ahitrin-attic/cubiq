@@ -23,6 +23,9 @@
 (def down-front-right-side #{:down-front-right :dfr-uf-ubr :dfr-uf-d :dfr-ubr-d})
 (def down-back-side #{:down-back :db-d-ubl :db-d-ubr :db-ubl-ubr})
 
+(def sides (list up-front-side up-side up-back-left-side up-back-right-side
+                 down-side down-front-left-side down-front-right-side down-back-side))
+
 ;; цвета
 (def colors #{:white :red :yellow :orange :gray :pink :blue :darkblue})
 
