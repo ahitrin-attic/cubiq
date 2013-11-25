@@ -46,7 +46,9 @@
 ;; выборка всех цветов с конкретной стороны
 (defn colors-on-side [hex side]
   (vals (select-keys hex side)))
-;; (colors-on-side complete-hex down-side)
+
+(defn same-colors-on-each-side [hex]
+  (= 1 (reduce max (map #(count (set (colors-on-side hex %))) sides))))
 
 ;; повороты
 (defn rotate [source rot]

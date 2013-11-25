@@ -21,9 +21,6 @@
              (-> complete-hex top top top)
              (-> complete-hex bot bot bot))))))
 
-(defn same-colors-on-each-side [hex]
-  (= 1 (reduce max (map #(count (set (colors-on-side hex %))) sides))))
-
 (comment ;; этот тест падает :(
 (deftest complement-rotations
   (testing "два поворота дополняют друг друга, если их использование делает куб правильно заполненным"
