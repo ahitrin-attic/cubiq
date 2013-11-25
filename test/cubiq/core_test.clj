@@ -15,10 +15,8 @@
 
 (deftest verify-rotations
   (testing "повороты написаны правильно"
-    (is (= complete-skewb-hex-example
-           (rotate (rotate (rotate complete-skewb-hex-example rot-top)
-                           rot-top)
-                   rot-top)))))
-
+    (let [r #(rotate % rot-top)]
+      (is (= complete-skewb-hex-example
+             (-> complete-skewb-hex-example r r r))))))
 (comment
   (clojure.test/run-tests))
