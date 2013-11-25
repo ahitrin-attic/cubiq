@@ -32,7 +32,7 @@
 (defn painted [side color]
   (zipmap side (repeat color)))
 
-(def complete-skewb-hex-example
+(def complete-hex
   (merge
     (painted up-front-side :white)
     (painted up-side :red)
@@ -46,7 +46,7 @@
 ;; выборка всех цветов с конкретной стороны
 (defn colors-on-side [hex side]
   (vals (select-keys hex side)))
-;; (colors-on-side complete-skewb-hex-example down-side)
+;; (colors-on-side complete-hex down-side)
 
 ;; повороты
 (defn rotate [source rot]

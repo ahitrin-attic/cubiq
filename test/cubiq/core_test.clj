@@ -17,9 +17,9 @@
   (testing "любой поворот, повторенный трижды, возвращает куб в исходное положение"
     (let [top #(rotate % rot-top)
           bot #(rotate % rot-bottom)]
-      (is (= complete-skewb-hex-example
-             (-> complete-skewb-hex-example top top top)
-             (-> complete-skewb-hex-example bot bot bot))))))
+      (is (= complete-hex
+             (-> complete-hex top top top)
+             (-> complete-hex bot bot bot))))))
 
 (defn same-colors-on-each-side [hex]
   (= 1 (reduce max (map #(count (set (colors-on-side hex %))) sides))))
@@ -29,7 +29,7 @@
   (testing "два поворота дополняют друг друга, если их использование делает куб правильно заполненным"
     (let [r1 #(rotate % rot-top)
           r2 #(rotate % rot-bottom)]
-      (is (same-colors-on-each-side (-> complete-skewb-hex-example r1 r2)))))))
+      (is (same-colors-on-each-side (-> complete-hex r1 r2)))))))
 
 (comment
   (clojure.test/run-tests))
