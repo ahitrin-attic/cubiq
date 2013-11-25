@@ -51,7 +51,7 @@
   (= 1 (reduce max (map #(count (set (colors-on-side hex %))) sides))))
 
 ;; повороты
-(defn rotate [source rot]
+(defn rotate [rot source]
   "source - исходный куб, rot - карта преобразования старых вершин в новые"
   (apply assoc source (flatten (for [x rot] (list (x 0) (source (x 1)))))))
 

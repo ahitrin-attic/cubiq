@@ -10,13 +10,13 @@
 
 (deftest rotation-function
   (testing "функция поворота работает нормально"
-    (is (= (rotate {:a :b :c :d :e :f} {:c :a :a :c})
+    (is (= (rotate {:c :a :a :c} {:a :b :c :d :e :f})
            {:a :d :c :b :e :f}))))
 
 (deftest verify-rotations
   (testing "любой поворот, повторенный трижды, возвращает куб в исходное положение"
-    (let [top #(rotate % rot-top)
-          bot #(rotate % rot-bottom)]
+    (let [top (partial rotate rot-top)
+          bot (partial rotate rot-bottom)]
       (is (= complete-hex
              (-> complete-hex top top top)
              (-> complete-hex bot bot bot))))))
@@ -24,8 +24,8 @@
 (comment ;; этот тест падает :(
 (deftest complement-rotations
   (testing "два поворота дополняют друг друга, если их использование делает куб правильно заполненным"
-    (let [r1 #(rotate % rot-top)
-          r2 #(rotate % rot-bottom)]
+    (let [r1 (partial rotate rot-top)
+          r2 (partial rotate rot-bottom)]
       (is (same-colors-on-each-side (-> complete-hex r1 r2)))))))
 
 (comment
