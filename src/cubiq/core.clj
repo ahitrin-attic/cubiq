@@ -70,3 +70,27 @@
   (round :d-db-dfr :d-db-dfl :d-dfl-dfr)
   (round :db-d-ubr :dfr-uf-d :dfl-ubl-d)
   (round :db-d-ubl :dfr-uf-ubr :dfl-uf-ubl)))
+
+(comment
+  (defne arco [x y]
+    ([:a :b])
+    ([:b :a])
+    ([:b :d])
+    ([:c :d]))
+
+  (run* [q] (arco :b q))
+
+  (def patho
+    (tabled [x y]
+      (conde
+        [(arco x y)]
+        [(fresh [z]
+          (arco x z)
+          (patho z y))])))
+
+  (run* [q] (patho :a q))
+  ;; поиск пути - входные данные:
+  ;;  * раскладка куба
+  ;; выходные данные:
+  ;;  * последовательность действий, которая превращает эту раскладку в целевую (q)
+)
