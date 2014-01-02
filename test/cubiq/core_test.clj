@@ -28,5 +28,11 @@
           r2 (partial rotate rot-bottom)]
       (is (same-colors-on-each-side (-> complete-hex r1 r2)))))))
 
+(deftest find-solutions
+  (testing "тестируем функцию поиска решения"
+    (let [hex (rotate rot-top complete-hex)
+          hex1 (rotate rot-top hex)]
+      (is (= (list :rot-top) (skewb-solutions hex1))))))
+
 (comment
   (clojure.test/run-tests))

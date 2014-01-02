@@ -1,4 +1,6 @@
-(ns cubiq.core)
+(ns cubiq.core
+  (:refer-clojure :exclude [==])
+  (:use clojure.core.logic))
 
 ;; Эта штука называется Skewb Hex
 
@@ -70,6 +72,13 @@
   (round :d-db-dfr :d-db-dfl :d-dfl-dfr)
   (round :db-d-ubr :dfr-uf-d :dfl-ubl-d)
   (round :db-d-ubl :dfr-uf-ubr :dfl-uf-ubl)))
+
+(def idx {:rot-top rot-top :rot-bottom rot-bottom})
+
+(defn skewb-solutions [skewb]
+  (run* [q]
+    (membero q (keys idx))
+    (project [q] (== complete-hex (rotate (idx q) skewb)))))
 
 (comment
   (defne arco [x y]
