@@ -32,8 +32,8 @@
   (testing "тестируем функцию поиска решения"
     (let [hex (rotate rot-top complete-hex)
           hex1 (rotate rot-top hex)]
-      (do (is (= (list :rot-top) (skewb-solutions hex1)))
-          (is (= (list :rot-top :rot-top) (skewb-solutions hex)))))))
+      (do (is (= (list (list :rot-top)) (skewb-solutions hex1)))
+          (is (= (list (list :rot-top :rot-top)) (skewb-solutions hex)))))))
 
 (comment
   (clojure.test/run-tests))

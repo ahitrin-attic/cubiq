@@ -75,10 +75,15 @@
 
 (def idx {:rot-top rot-top :rot-bottom rot-bottom})
 
+(defne solveso [q skewb]
+  ([() ()])
+  ([[x . xs] _]
+    (membero x (keys idx))
+    (project [x] (== complete-hex (rotate (idx x) skewb)))
+    (emptyo xs)))
+
 (defn skewb-solutions [skewb]
-  (run* [q]
-    (membero q (keys idx))
-    (project [q] (== complete-hex (rotate (idx q) skewb)))))
+  (run* [q] (solveso q skewb)))
 
 (comment
   (defne arco [x y]
